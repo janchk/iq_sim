@@ -1,0 +1,22 @@
+<launch>
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  
+<!--    <arg name="model" default="$(find realsense_ros_gazebo)/urdf/test.xacro"/>
+
+
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+  <node  name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-z 1.0 -unpause -urdf -model test_model -param robot_description" respawn="false" output="screen" />
+
+ -->
+  <arg name="gui" default="true"/>
+
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find iq_sim)/worlds/small_house_rs_drone.world"/>
+<!--     <arg name="world_name" value="$(find iq_sim)/worlds/runway.world"/> -->
+<!--     <arg name="world_name" value="$(find iq_sim)/worlds/slam_room.world"/> -->
+    <arg name="gui" value="$(arg gui)"/>
+    <!-- more default parameters can be changed here -->
+  </include>
+<!--   <node pkg="tf" type="static_transform_publisher" name="camera_to_base" args="0 0 0 0 0 0 /base_link /cam_link 100" /> -->
+</launch>

@@ -15,6 +15,7 @@
         </limit>
       </axis>
     </joint> 
+
 <!--   <joint name="camera_odom_frame_joint" type="fixed">
     <child>camera_pose_frame_joint</child>
     <parent>iris::base_link</parent>
@@ -27,6 +28,7 @@
       </limit>
     </axis>
   </joint> -->
+
   <joint name="camera_pose_frame_joint" type="fixed">
     <child>camera_pose_frame</child>
     <parent>iris::base_link</parent>
@@ -39,22 +41,23 @@
       </limit>
     </axis>
   </joint>
-  <link name="camera_odom_frame"/>
+  <!-- <link name="camera_odom_frame"/> -->
+
   <link name="camera_pose_frame">
     <axis>
       <xyz>0 0 0</xyz>
       <rpy>0 0 0</rpy>
     </axis>
   <!-- </link> -->
-<!--     <visual name="camera_visual">
-      <pose>0.15 0 0.1 0 0 0</pose>
-      <geometry>
-        <mesh>
-          <uri>package://realsense_ros_gazebo/meshes/realsense_t265.stl</uri>
-          <scale>0.001 0.001 0.001</scale>
-        </mesh>
-      </geometry>
-    </visual> -->
+    <!--     <visual name="camera_visual">
+        <pose>0.15 0 0.1 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>package://realsense_ros_gazebo/meshes/realsense_t265.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </visual> -->
 
     <inertial>
       <mass>0.001</mass>
@@ -64,8 +67,6 @@
           <izz>0.001</izz>
       </inertia>
     </inertial>
-
-
     <sensor name="camera" type="wideanglecamera">
       <pose>0.15 0.2 0.1 0 0 0</pose>
       <camera>
@@ -111,9 +112,7 @@
         <Cy>403.38909912109375</Cy>
       </plugin>
     </sensor>
-
-
-    <sensor name="camera" type="wideanglecamera">
+    <sensor name="camera2" type="wideanglecamera">
       <pose>0.15 -0.022 0.1 0 0 0</pose>
       <camera>
         <horizontal_fov>2.84489</horizontal_fov>
@@ -160,8 +159,6 @@
         <Cy>403.38909912109375</Cy>
       </plugin>
     </sensor>
-
-
   </link>
 
 
@@ -350,6 +347,7 @@
       <upward>0 0 1</upward>
       <link_name>iris::rotor_3</link_name>
     </plugin>
+
     <plugin name="arducopter_plugin" filename="libArduPilotPlugin.so">
       <fdm_addr>127.0.0.1</fdm_addr>
       <fdm_port_in>9002</fdm_port_in>
